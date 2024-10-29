@@ -9,12 +9,20 @@ import './App.css';
 
 const App = () => {
   const [savedAddresses, setSavedAddresses] = useState([
-    { id: 1, category: "Home", details: "123 Main St, City, Country" },
-    { id: 2, category: "Office", details: "456 Corporate Ave, City, Country" },
-    { id: 3, category: "Friends & Family", details: "789 Friends St, City, Country" },
+    { id: 1, category: "Home", details: "123 Main, Jaipur, Rajasthan" },
+
+    { id: 2, category: "Friends & Family", details: "789 Street, Haridwar, India" },
   ]);
   const [locationPermissionGranted, setLocationPermissionGranted] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState(null);
+  const [recentSearches, setRecentSearches] = useState([]);
+
+  const handleSearchChange = (searchTerm) => {
+    // If search term is valid, add to recent searches
+    if (searchTerm && !recentSearches.includes(searchTerm)) {
+      setRecentSearches((prev) => [searchTerm, ...prev].slice(0, 5)); // Keep last 5 searches
+    }
+  };
 
   const handleEnableLocation = () => {
     setLocationPermissionGranted(true);
@@ -26,7 +34,7 @@ const App = () => {
 
   const handleLocationSelect = (location) => {
     setSelectedLocation(location);
-    alert(`Location selected: ${location}`); 
+    alert(`Location selected: ${location}`);
   };
 
   const handleAddressSelect = (address) => {
@@ -45,7 +53,7 @@ const App = () => {
 
   // Function to handle address submission
   const handleAddressSubmit = (formData) => {
-    const newAddress = { 
+    const newAddress = {
       id: savedAddresses.length + 1, // Simple ID generation
       category: formData.category,
       details: `${formData.houseNumber}, ${formData.apartmentArea}` // Combine details for display
@@ -81,9 +89,11 @@ const App = () => {
           element={
             <AddressManagement
               savedAddresses={savedAddresses}
+              recentSearches={recentSearches} // Pass recent searches to AddressManagement
               onAddressSelect={handleAddressSelect}
               onAddressDelete={handleAddressDelete}
               onAddressUpdate={handleAddressUpdate}
+              onSearchChange={handleSearchChange} // Pass search change handler
             />
           }
         />

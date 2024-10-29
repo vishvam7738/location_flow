@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import "./AddressManagement.css";
 
-const AddressManagement = ({ savedAddresses, onAddressSelect, onAddressDelete, onAddressUpdate }) => {
+const AddressManagement = ({ 
+  savedAddresses, 
+  recentSearches,       // Add recentSearches to props
+  onAddressSelect, 
+  onAddressDelete, 
+  onAddressUpdate, 
+  onSearchChange        // Add onSearchChange to props
+}) => {
   const [addresses, setAddresses] = useState(savedAddresses);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -11,7 +18,9 @@ const AddressManagement = ({ savedAddresses, onAddressSelect, onAddressDelete, o
   }, [savedAddresses]);
 
   const handleSearchChange = (e) => {
-    setSearchTerm(e.target.value);
+    const term = e.target.value;
+    setSearchTerm(term);
+    onSearchChange(term); // Update recent searches
   };
 
   const handleDelete = (id) => {
@@ -66,6 +75,17 @@ const AddressManagement = ({ savedAddresses, onAddressSelect, onAddressDelete, o
           ))
         ) : (
           <li>No addresses found</li>
+        )}
+      </ul>
+
+      <h3>Recent Searches</h3>
+      <ul className="recent-searches-list">
+        {recentSearches.length > 0 ? (
+          recentSearches.map((search, index) => (
+            <li key={index} className="recent-search-item">{search}</li>
+          ))
+        ) : (
+          <li>No recent searches</li>
         )}
       </ul>
     </div>
