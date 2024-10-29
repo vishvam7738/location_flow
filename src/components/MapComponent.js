@@ -19,6 +19,15 @@ const MapComponent = ({ onLocationSelect }) => {
     onLocationSelect(newLocation);
   };
 
+  const handleMapClick = (event) => {
+    const newLocation = {
+      lat: event.latLng.lat(),
+      lng: event.latLng.lng(),
+    };
+    setSelectedLocation(newLocation);
+    onLocationSelect(newLocation);
+  };
+
   const handleContinue = () => {
     navigate('/address-management');
   };
@@ -32,12 +41,17 @@ const MapComponent = ({ onLocationSelect }) => {
         <GoogleMap
           center={selectedLocation}
           zoom={15}
-          mapContainerStyle={{ width: '100%', height: '400px' }}
+          mapContainerStyle={{ width: '100%', height: '400px' }} // Ensure this is correct
+          onClick={handleMapClick} // Handle map click events
         >
           <Marker
             position={selectedLocation}
-            draggable
+            draggable={true} // Ensure draggable is set to true
             onDragEnd={handleDragEnd}
+            icon={{
+              url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png", // Simple red marker
+              scaledSize: new window.google.maps.Size(30, 30), // Scale size if needed
+            }}
           />
         </GoogleMap>
       </div>

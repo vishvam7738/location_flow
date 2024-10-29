@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import './AddressForm.css'; // Add your CSS styling here
+import './AddressForm.css'; 
 
 const AddressForm = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
     houseNumber: '',
     apartmentArea: '',
-    category: 'Home', // Default to Home
+    category: 'Home', 
   });
 
   const handleInputChange = (e) => {
@@ -25,7 +25,8 @@ const AddressForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData); // Pass form data to parent component or save to backend
+    onSubmit(formData); // Ensure this function is called correctly
+    setFormData({ houseNumber: '', apartmentArea: '', category: 'Home' }); // Reset form after submission
   };
 
   return (

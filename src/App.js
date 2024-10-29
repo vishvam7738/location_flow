@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import AddressManagement from './components/AddressManagement';
 import LocationPermissionModel from './components/LocationPermissionModel';
 import MapComponent from './components/MapComponent';
+import AddressForm from './components/AddressForm';
+import QuickAccess from './components/QuickAccess';
+import './App.css';
 
 const App = () => {
   const [savedAddresses, setSavedAddresses] = useState([
@@ -21,6 +24,11 @@ const App = () => {
     setLocationPermissionGranted(true);
   };
 
+  const handleLocationSelect = (location) => {
+    setSelectedLocation(location);
+    alert(`Location selected: ${location}`); 
+  };
+
   const handleAddressSelect = (address) => {
     alert(`Selected address for delivery: ${address.details}`);
   };
@@ -35,8 +43,14 @@ const App = () => {
     ));
   };
 
-  const handleLocationSelect = (location) => {
-    setSelectedLocation(location);
+  // Function to handle address submission
+  const handleAddressSubmit = (formData) => {
+    const newAddress = { 
+      id: savedAddresses.length + 1, // Simple ID generation
+      category: formData.category,
+      details: `${formData.houseNumber}, ${formData.apartmentArea}` // Combine details for display
+    };
+    setSavedAddresses((prevAddresses) => [...prevAddresses, newAddress]);
   };
 
   return (
@@ -45,17 +59,22 @@ const App = () => {
         <Route
           path="/"
           element={
-            <LocationPermissionModel 
-              onEnableLocation={handleEnableLocation}
-              onManualSearch={handleManualSearch}
-            />
+            <>
+              <QuickAccess />
+              <LocationPermissionModel
+                onEnableLocation={handleEnableLocation}
+                onManualSearch={handleManualSearch}
+              />
+            </>
           }
         />
         <Route
           path="/map"
-          element={
-            <MapComponent onLocationSelect={handleLocationSelect} />
-          }
+          element={<MapComponent onLocationSelect={handleLocationSelect} />}
+        />
+        <Route
+          path='/address-form'
+          element={<AddressForm onSubmit={handleAddressSubmit} />}
         />
         <Route
           path="/address-management"

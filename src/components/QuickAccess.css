@@ -1,0 +1,7 @@
+.quick-access {
+  text-align: center;
+  padding: 20px;
+  /* border: 2px solid #28a745; */
+  /* border-radius: 10px; */
+  background: radial-gradient(circle, #46d4ea 0%, #00a9e0 100%); /* Radial gradient effect */
+}
