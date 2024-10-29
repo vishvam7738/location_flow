@@ -1,62 +1,111 @@
-.location-permission-model {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 400px;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    z-index: 1000;
-  }
-  
-  .location-permission-model h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    color: #333;
-  }
-  
-  .location-permission-model p {
-    font-size: 1em;
-    margin-bottom: 20px;
-    color: #666;
-  }
-  
-  .location-permission-model button {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    font-size: 1em;
-    color: #fff;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .location-permission-model button:last-child {
-    background-color: #28a745;
-  }
-  
-  .location-permission-model button:hover {
-    opacity: 0.9;
-  }
-  
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
 
-  .permission-background {
-    background-image: url('../assets/bg.jpg'); /* Adjust the path accordingly */
-    background-size: cover; /* Ensures the image covers the entire area */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    min-height: 100vh; /* Ensures the body covers the full viewport */
-    margin: 0; /* Remove default margin */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center the content */
+* {
+  font-family: 'Montserrat', sans-serif; /* Consistent font throughout */
+}
+
+.location-permission-model {
+  position: fixed;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 400px;
+  padding: 30px; /* Slightly more padding for a spacious feel */
+  background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  backdrop-filter: blur(10px); /* Blurs the background content behind the modal */
+  border-radius: 15px; /* Softer corners */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+  text-align: center;
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
+  animation: pop-in 0.5s ease-out; /* Animation for appearing */
+}
+
+/* Pop-in animation */
+@keyframes pop-in {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%) scale(0.9); /* Start slightly smaller */
   }
-  
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); /* End at normal size */
+  }
+}
+
+/* Class to make it visible */
+.location-permission-model.visible {
+  opacity: 1; /* Fully visible */
+}
+
+/* Optional hover effect */
+.location-permission-model:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4); /* Increase shadow on hover */
+  transform: translate(-50%, -50%) scale(1.05); /* Slightly scale up on hover */
+}
+
+
+.location-permission-model h2 {
+  font-size: 1.6em; /* Slightly larger font for the header */
+  margin-bottom: 15px; /* Increased margin for better spacing */
+  color: #333;
+}
+
+.location-permission-model p {
+  font-size: 1em;
+  margin-bottom: 20px;
+  color: #555; /* Slightly darker for better readability */
+}
+
+.enable-button {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1em;
+  color: #ffffff; 
+  background-color: #ff4d4d; /* Bright red color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 10px rgba(255, 77, 77, 0.3); 
+}
+
+.enable-button:hover {
+  background-color: #cc0000; /* Darker shade on hover */
+  box-shadow: 0 6px 12px rgba(255, 77, 77, 0.5);
+}
+
+.manual-search-button {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1em;
+  color: #ff4d4d; 
+  background-color: #ffffff; 
+  border: 2px solid #ff4d4d; 
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 10px rgba(255, 77, 77, 0.15);
+}
+
+.manual-search-button:hover {
+  background-color: #ffe6e6; 
+  color: #cc0000; 
+  box-shadow: 0 6px 12px rgba(255, 77, 77, 0.25); 
+}
+
+.permission-background {
+  background-image: url('../assets/bg.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  background-repeat: no-repeat; 
+  min-height: 100vh; 
+  margin: 0; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+}

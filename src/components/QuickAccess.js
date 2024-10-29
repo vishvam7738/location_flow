@@ -15,7 +15,7 @@ const QuickAccess = () => {
 
   return (
     <div className="quick-access">
-      <h3>Quick Access</h3>
+      <h3>⚡Quick Access⚡</h3>
       <button onClick={handleAddressFormClick}>Go to Address Form</button>
       <button onClick={handleAddressManagementClick}>Go to Address Management</button>
     </div>

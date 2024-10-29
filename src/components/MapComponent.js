@@ -41,16 +41,16 @@ const MapComponent = ({ onLocationSelect }) => {
         <GoogleMap
           center={selectedLocation}
           zoom={15}
-          mapContainerStyle={{ width: '100%', height: '400px' }} // Ensure this is correct
-          onClick={handleMapClick} // Handle map click events
+          mapContainerStyle={{ width: '100%', height: '400px' }} 
+          onClick={handleMapClick}
         >
           <Marker
             position={selectedLocation}
-            draggable={true} // Ensure draggable is set to true
+            draggable={true} 
             onDragEnd={handleDragEnd}
             icon={{
-              url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png", // Simple red marker
-              scaledSize: new window.google.maps.Size(30, 30), // Scale size if needed
+              url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png", 
+              scaledSize: new window.google.maps.Size(30, 30), 
             }}
           />
         </GoogleMap>

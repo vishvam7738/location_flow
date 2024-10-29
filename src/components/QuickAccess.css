@@ -1,7 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
 .quick-access {
   text-align: center;
-  padding: 20px;
-  /* border: 2px solid #28a745; */
-  /* border-radius: 10px; */
-  background: radial-gradient(circle, #46d4ea 0%, #00a9e0 100%); /* Radial gradient effect */
+  padding: 15px; /* Increased padding for a spacious feel */
+  background: linear-gradient(185deg, rgba(8, 13, 19, 0.9) 0%, rgba(124, 243, 255, 0.6) 100%); /* Softer gradient */
+  border-radius: 5px; /* Softer rounded corners */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(124, 243, 255, 0.3); /* Multiple shadows for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+.quick-access:hover {
+  transform: translateY(-5px); /* Slight uplift effect on hover */
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25), 0 6px 20px rgba(124, 243, 255, 0.4); /* Enhanced shadow on hover */
+}
+
+.quick-access h3 {
+  color: #ffffff; /* White text for contrast */
+  margin-bottom: 10px;
+  font-size: 1.5em; /* Slightly larger font size for emphasis */
+}
+
+.quick-access p {
+  color: rgba(255, 255, 255, 0.8); /* Lighter text color for better readability */
+  margin: 0;
+}
+
+.quick-access button {
+  background-color: #ffffff; /* Button background color */
+  color: #00a9e0; /* Button text color */
+  border: 2px solid #00a9e0;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  margin: 0 10px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect for buttons */
+}
+
+.quick-access button:hover {
+  background-color: #00a9e0;
+  color: #ffffff;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
 }

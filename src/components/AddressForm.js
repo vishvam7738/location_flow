@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import './AddressForm.css'; 
+import './AddressForm.css';
+import delImage from '../assets/del-removebg-preview.png'; 
 
 const AddressForm = ({ onSubmit }) => {
   const [formData, setFormData] = useState({
     houseNumber: '',
     apartmentArea: '',
-    category: 'Home', 
+    category: 'Home',
   });
 
   const handleInputChange = (e) => {
@@ -25,68 +26,75 @@ const AddressForm = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(formData); // Ensure this function is called correctly
-    setFormData({ houseNumber: '', apartmentArea: '', category: 'Home' }); // Reset form after submission
+    onSubmit(formData);
+    setFormData({ houseNumber: '', apartmentArea: '', category: 'Home' });
   };
 
   return (
-    <form className="address-form" onSubmit={handleSubmit}>
-      <h3>Delivery Address</h3>
-      <div className="form-group">
-        <label>House / Flat / Block No.</label>
-        <input
-          type="text"
-          name="houseNumber"
-          value={formData.houseNumber}
-          onChange={handleInputChange}
-          placeholder="Enter your house or flat number"
-          required
-        />
-      </div>
-
-      <div className="form-group">
-        <label>Apartment / Road / Area</label>
-        <input
-          type="text"
-          name="apartmentArea"
-          value={formData.apartmentArea}
-          onChange={handleInputChange}
-          placeholder="Enter your apartment or area"
-          required
-        />
-      </div>
-
-      <div className="category-select">
-        <label>Save As:</label>
-        <div className="categories">
-          <button
-            type="button"
-            className={formData.category === 'Home' ? 'selected' : ''}
-            onClick={() => handleCategorySelect('Home')}
-          >
-            🏠 Home
-          </button>
-          <button
-            type="button"
-            className={formData.category === 'Office' ? 'selected' : ''}
-            onClick={() => handleCategorySelect('Office')}
-          >
-            🏢 Office
-          </button>
-          <button
-            type="button"
-            className={formData.category === 'Friends & Family' ? 'selected' : ''}
-            onClick={() => handleCategorySelect('Friends & Family')}
-          >
-            👪 Friends & Family
-          </button>
+    <div className="address-form-container">
+      <form className="address-form" onSubmit={handleSubmit}>
+        <h3>Delivery Address</h3>
+        <div className="form-group">
+          <label>House / Flat / Block No.</label>
+          <input
+            type="text"
+            name="houseNumber"
+            value={formData.houseNumber}
+            onChange={handleInputChange}
+            placeholder="Enter your house or flat number"
+            required
+          />
         </div>
+
+        <div className="form-group">
+          <label>Apartment / Road / Area</label>
+          <input
+            type="text"
+            name="apartmentArea"
+            value={formData.apartmentArea}
+            onChange={handleInputChange}
+            placeholder="Enter your apartment or area"
+            required
+          />
+        </div>
+
+        <div className="category-select">
+          <label>Save As:</label>
+          <div className="categories">
+            <button
+              type="button"
+              className={formData.category === 'Home' ? 'selected' : ''}
+              onClick={() => handleCategorySelect('Home')}
+            >
+              🏠 Home
+            </button>
+            <button
+              type="button"
+              className={formData.category === 'Office' ? 'selected' : ''}
+              onClick={() => handleCategorySelect('Office')}
+            >
+              🏢 Office
+            </button>
+            <button
+              type="button"
+              className={formData.category === 'Friends & Family' ? 'selected' : ''}
+              onClick={() => handleCategorySelect('Friends & Family')}
+            >
+              👪 Friends & Family
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" className="submit-button">
+          Save Address
+        </button>
+      </form>
+
+      <div className="image-container">
+        <img src={delImage} alt="Description of the image" />
       </div>
 
-      <button type="submit" className="submit-button">
-        Save Address
-      </button>
-    </form>
+    </div>
   );
 };
 

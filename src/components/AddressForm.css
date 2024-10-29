@@ -1,54 +1,114 @@
+html, body {
+  height: 100%; /* Ensure full height for the body */
+  margin: 0; /* Remove default margin */
+  background-image: url('../assets/bg2.jpg'); /* Add your background image path */
+  background-size: cover; /* Cover the entire viewport */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Prevent repeating of the background */
+}
+
+.address-form-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  height: 100vh; /* Full height of the viewport */
+  padding: 20px; /* Optional padding */
+  position: relative; /* Set position relative to stack elements */
+}
+
 .address-form {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-  }
-  
-  .form-group {
-    margin-bottom: 15px;
-  }
-  
-  .form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-  }
-  
-  .form-group input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .category-select {
-    margin-bottom: 15px;
-  }
-  
-  .categories button {
-    margin-right: 10px;
-    padding: 8px 12px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .categories .selected {
-    background-color: #007bff;
-    color: white;
-  }
-  
-  .submit-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #28a745;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
+  width: 500px; /* Set a fixed width for the form */
+  height: 320px; /* Set a fixed height for the form */
+  margin: 0 20px; /* Margin for space between form and image */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: rgba(249, 249, 249, 0.8); /* Semi-transparent background for form */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+
+
+
+.image-container {
+  display: flex; /* Flexbox for centering */
+  justify-content: center; /* Center the image */
+  align-items: center; /* Center vertically */
+  height: auto; /* Adjust height as needed */
+}
+
+.image-container img {
+  max-width: 100%; /* Make the image responsive */
+  width: 300px; /* Fixed width for the image */
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for transform and shadow */
+}
+
+.image-container img:hover {
+  transform: translateY(-20px); /* Uplift effect */
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.category-select {
+  margin-bottom: 15px;
+}
+
+.categories button {
+  margin-right: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.categories button:hover {
+  background-color: rgba(0, 123, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.categories .selected {
+  background-color: #007bff;
+  color: white;
+}
+
+.submit-button {
+  width: 100%;
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+}
+
+.submit-button:hover {
+  background-color: #218838;
+  box-shadow: 0 6px 15px rgba(40, 167, 69, 0.4);
+}
