@@ -1,0 +1,48 @@
+.location-permission-model {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1000;
+  }
+  
+  .location-permission-model h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .location-permission-model p {
+    font-size: 1em;
+    margin-bottom: 20px;
+    color: #666;
+  }
+  
+  .location-permission-model button {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .location-permission-model button:last-child {
+    background-color: #28a745;
+  }
+  
+  .location-permission-model button:hover {
+    opacity: 0.9;
+  }
+  
