@@ -1,4 +1,4 @@
-In the project directory, you can run to run the website:
+In the project directory, you can run following command to run the website:
 
 ### `npm start`
 
