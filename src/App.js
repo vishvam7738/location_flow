@@ -13,8 +13,8 @@ const App = () => {
 
     { id: 2, category: "Friends & Family", details: "789 Street, Haridwar, India" },
   ]);
-  const [locationPermissionGranted, setLocationPermissionGranted] = useState(false);
-  const [selectedLocation, setSelectedLocation] = useState(null);
+  // const [locationPermissionGranted, setLocationPermissionGranted] = useState(false);
+  // const [selectedLocation, setSelectedLocation] = useState(null);
   const [recentSearches, setRecentSearches] = useState([]);
 
   const handleSearchChange = (searchTerm) => {
